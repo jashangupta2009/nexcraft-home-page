@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { JetBrains_Mono } from "next/font/google";
+import { CursorGlow } from "./cursor-glow";
 import "./globals.css";
 
 const switzer = localFont({
@@ -68,6 +69,7 @@ export default function RootLayout({
     <html lang="en" className={`${switzer.variable} ${jetbrainsMono.variable}`}>
       <body>
         <div className="atmosphere" aria-hidden="true" />
+        <CursorGlow />
         <div className="grain" aria-hidden="true" />
         {children}
       </body>
