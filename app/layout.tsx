@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { JetBrains_Mono } from "next/font/google";
 import { CursorGlow } from "./cursor-glow";
+import { DevAgentation } from "./dev-agentation";
 import "./globals.css";
 
 const switzer = localFont({
@@ -72,6 +73,7 @@ export default function RootLayout({
         <CursorGlow />
         <div className="grain" aria-hidden="true" />
         {children}
+        <DevAgentation />
       </body>
     </html>
   );

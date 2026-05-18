@@ -21,13 +21,12 @@
     --mx: 50%;
     --my: 50%;
 
-    --mesh-violet: oklch(0.32 0.18 290);
-    --mesh-amber: oklch(0.42 0.14 78);
-    --mesh-teal: oklch(0.34 0.10 200);
+    --mesh-violet: oklch(0.42 0.22 290);
+    --mesh-amber: oklch(0.52 0.18 78);
+    --mesh-teal: oklch(0.44 0.14 200);
   }
 
-  html,
-  body {
+  html {
     background: var(--base);
     color: var(--ink);
     font-family: var(--font-switzer), system-ui, sans-serif;
@@ -38,6 +37,7 @@
   }
 
   body {
+    background: transparent;
     min-height: 100svh;
     position: relative;
     overflow-x: hidden;
@@ -69,11 +69,29 @@
     position: absolute;
     inset: -10%;
     background:
-      radial-gradient(circle at 18% 22%, var(--mesh-violet) 0%, transparent 42%),
-      radial-gradient(circle at 82% 30%, var(--mesh-amber) 0%, transparent 38%),
-      radial-gradient(circle at 50% 88%, var(--mesh-teal) 0%, transparent 45%);
-    filter: blur(60px) saturate(110%);
-    opacity: 0.55;
+      radial-gradient(
+        circle at
+          calc(18% + (var(--mx) - 50%) * 0.5)
+          calc(22% + (var(--my) - 50%) * 0.5),
+        var(--mesh-violet) 0%,
+        transparent 42%
+      ),
+      radial-gradient(
+        circle at
+          calc(82% + (var(--mx) - 50%) * -0.55)
+          calc(30% + (var(--my) - 50%) * -0.55),
+        var(--mesh-amber) 0%,
+        transparent 38%
+      ),
+      radial-gradient(
+        circle at
+          calc(50% + (var(--mx) - 50%) * 0.35)
+          calc(88% + (var(--my) - 50%) * 0.35),
+        var(--mesh-teal) 0%,
+        transparent 45%
+      );
+    filter: blur(50px) saturate(125%);
+    opacity: 0.85;
     animation: drift 28s ease-in-out infinite alternate;
     will-change: transform;
   }
@@ -190,22 +208,16 @@
     z-index: -2;
     pointer-events: none;
     background: radial-gradient(
-      circle 420px at var(--mx) var(--my),
-      var(--accent-glow) 0%,
-      oklch(0.78 0.12 92 / 0.08) 28%,
-      transparent 62%
+      circle 520px at var(--mx) var(--my),
+      oklch(0.92 0.19 92 / 0.55) 0%,
+      oklch(0.85 0.15 92 / 0.22) 22%,
+      transparent 58%
     );
     mix-blend-mode: screen;
-    opacity: 0;
-    transition: opacity 900ms cubic-bezier(0.22, 1, 0.36, 1);
     will-change: background;
   }
 
-  .cursor-glow[data-active="true"] {
-    opacity: 1;
-  }
-
-  @media (hover: none), (prefers-reduced-motion: reduce) {
+  @media (hover: none) {
     .cursor-glow {
       display: none;
     }
