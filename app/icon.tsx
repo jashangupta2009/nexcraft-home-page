@@ -13,13 +13,18 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background:
-            "radial-gradient(circle at 30% 25%, #2a1a4a 0%, #0a0a14 70%)",
-          color: "#f3e9d2",
+          background: [
+            "radial-gradient(circle at 22% 18%, #5e2eb0 0%, transparent 58%)",
+            "radial-gradient(circle at 82% 28%, #c98a2a 0%, transparent 52%)",
+            "radial-gradient(circle at 50% 94%, #1f7388 0%, transparent 56%)",
+            "#0a0a14",
+          ].join(", "),
+          color: "#f5edd9",
           fontSize: 22,
-          fontWeight: 600,
+          fontWeight: 500,
           letterSpacing: "-0.04em",
-          borderRadius: 6,
+          textShadow: "0 0 6px rgba(240, 210, 75, 0.45)",
+          borderRadius: 7,
         }}
       >
         N
