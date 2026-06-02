@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import { JetBrains_Mono } from "next/font/google";
 import { CursorGlow } from "./cursor-glow";
 import { DevAgentation } from "./dev-agentation";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const switzer = localFont({
@@ -74,6 +76,8 @@ export default function RootLayout({
         <div className="grain" aria-hidden="true" />
         {children}
         <DevAgentation />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

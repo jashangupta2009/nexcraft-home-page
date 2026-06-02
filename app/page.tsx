@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { EmailLink } from "./email-link";
 
 type DelayStyle = CSSProperties & { "--delay": string };
 const delay = (ms: number): DelayStyle => ({ "--delay": `${ms}ms` });
@@ -38,14 +39,7 @@ export default function HomePage() {
         </p>
 
         <div className="reveal mt-14" style={delay(440)}>
-          <a
-            href="mailto:hello@nexcraft.app"
-            className="email-link font-sans"
-            aria-label="Email NexCraft at hello@nexcraft.app"
-          >
-            hello@nexcraft.app
-            <span className="arrow" aria-hidden="true">→</span>
-          </a>
+          <EmailLink />
         </div>
 
         <footer
